@@ -8,41 +8,50 @@ import Signup from "./components/Signup";
 
 
 function App() {
-  return (<Router>
-    <div className="App">
-      <nav className="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
-        <div className="container">
-          <Link className="navbar-brand mb-0 h1" to={"/sign-in"}>AppCubic</Link>
-          <div className="navbar-collapse" id="navbarTogglerDemo02">
-            <ul className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <Link className="nav-link text-white" to={"/sign-in"}>Login</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link text-white" to={"/sign-up"}>Sign Up</Link>
-              </li>
-            </ul>
+  return (
+    <Router>
+      <div className="App">
+        <nav className="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+          <div className="container">
+            <Link className="navbar-brand mb-0 h1" to={"/sign-in"}>
+              AppCubic
+            </Link>
+            <div className="navbar-collapse" id="navbarTogglerDemo02">
+              <ul className="navbar-nav ml-auto">
+                <li className="nav-item">
+                  <Link className="nav-link text-white" to={"/sign-in"}>
+                    Login
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link text-white" to={"/sign-up"}>
+                    Sign Up
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+        <div className="auth-wrapper">
+          <div className="auth-inner">
+            <Switch>
+              <Route exact path="/" component={Login} />
+              <Route path="/sign-in" component={Login} />
+              <Route path="/sign-up" component={Signup} />
+            </Switch>
           </div>
         </div>
-      </nav>
+      </div>
 
-      <div className="auth-wrapper">
-        <div className="auth-inner">
-          <Switch>
-            <Route exact path='/' component={Login} />
-            <Route path="/sign-in" component={Login} />
-            <Route path="/sign-up" component={Signup} />
-          </Switch>
+
+      <nav class="navbar fixed-bottom navbar-dark bg-secondary navbar-expand-sm">
+        <div className="container">
+          <span className="text-center text-white">
+            AppCubic ♥️ 2021
+          </span>
         </div>
-      </div>
-    </div>
-    
-    <footer className ="footer mt-auto py-3 bg-secondary">
-      <div className = "container">
-        <p className = "font-weight-light text-center text-white">AppCubic 2021
-        </p>
-      </div>
-    </footer>
+      </nav>
     </Router>
   );
 }
